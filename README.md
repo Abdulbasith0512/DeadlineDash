@@ -32,27 +32,28 @@ npm install
 
 ### 2. Environment Configuration
 
-Create a `.env` file in the root directory with the following variables:
+Create a `config.env` file in the root directory based on the provided `.env.example` file:
 
 ```env
-# MongoDB Connection
-MONGODB_URI=mongodb+srv://pramodhkumar782006:pramodh786@cluster0.a0woy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+# Copy the contents from .env.example and replace with your actual credentials
+# DO NOT commit your actual credentials to the repository
+```
 
-# Server Configuration
-PORT=3000
-NODE_ENV=development
+The `.env.example` file contains all the required environment variables with placeholder values. Replace these with your actual credentials for:
 
-# JWT Secret
-JWT_SECRET=deadline-dash-secret-key-2024
+- MongoDB connection string
+- JWT secret key
+- Twilio credentials (for SMS notifications)
+- Other configuration settings
 
-# Twilio Configuration
-TWILIO_ACCOUNT_SID=your_twilio_account_sid
-TWILIO_AUTH_TOKEN=your_twilio_auth_token
-TWILIO_PHONE_NUMBER=your_twilio_phone_number
+### Security Note
 
-# Rate Limiting
-RATE_LIMIT_WINDOW_MS=900000
-RATE_LIMIT_MAX_REQUESTS=100
+This repository is configured with security best practices:
+
+- Sensitive files like `config.env` and `.env` are included in `.gitignore` to prevent accidental commits
+- Use `.env.example` as a template for required environment variables without exposing actual credentials
+- Never commit actual credentials to the repository
+- If you accidentally commit sensitive information, follow proper steps to remove it from the repository history
 ```
 
 ### 3. Twilio Setup
@@ -229,4 +230,4 @@ MIT License - feel free to use this project for educational purposes.
 
 ## Support
 
-For issues or questions, please check the troubleshooting section or create an issue in the repository. 
+For issues or questions, please check the troubleshooting section or create an issue in the repository.
