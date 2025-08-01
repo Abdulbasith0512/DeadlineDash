@@ -46,6 +46,16 @@ The `.env.example` file contains all the required environment variables with pla
 - Twilio credentials (for SMS notifications)
 - Other configuration settings
 
+### 3. Start the Application
+
+```bash
+# Development mode with auto-restart
+npm run dev
+
+# Production mode
+npm start
+```
+
 ### Security Note
 
 This repository is configured with security best practices:
@@ -54,6 +64,17 @@ This repository is configured with security best practices:
 - Use `.env.example` as a template for required environment variables without exposing actual credentials
 - Never commit actual credentials to the repository
 - If you accidentally commit sensitive information, follow proper steps to remove it from the repository history
+
+## Deployment
+
+For detailed deployment instructions, please refer to the [DEPLOYMENT.md](./DEPLOYMENT.md) file. The application can be deployed to various platforms including:
+
+- **Render** (recommended for free tier)
+- **Railway**
+- **Fly.io**
+- **Heroku**
+
+Each platform has its own configuration requirements, which are documented in the deployment guide.
 ```
 
 ### 3. Twilio Setup

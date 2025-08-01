@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "echo 'no build script'"
+    "build": "echo 'no build script'",
+    "setup-env": "node scripts/setup-env.js",
+    "predeploy": "npm run setup-env"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
