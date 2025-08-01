@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DeadlineDASH</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-layout">
+        <header class="app-header">
+            <div class="header-left">
+                <button class="sidebar-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <i class="fas fa-rocket"></i>
+                    <span>DeadlineDASH</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <span id="headerUserName">Welcome!</span>
+                    <div class="user-menu">
+                        <button class="user-avatar" onclick="toggleUserMenu()">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">Profile</a>
+                            <a href="settings.html">Settings</a>
+                            <a href="#" onclick="logout()">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="app-container">
+            <aside class="sidebar" id="sidebar">
+                <nav class="sidebar-nav">
+                    <a href="dashboard.html" class="nav-item active">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="assignments.html" class="nav-item">
+                        <i class="fas fa-tasks"></i>
+                        <span>Assignments</span>
+                    </a>
+                    <a href="courses.html" class="nav-item">
+                        <i class="fas fa-book"></i>
+                        <span>Courses</span>
+                    </a>
+                    <a href="calendar.html" class="nav-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Calendar</span>
+                    </a>
+                    <a href="statistics.html" class="nav-item">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Statistics</span>
+                    </a>
+                    <a href="profile.html" class="nav-item">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                    <a href="settings.html" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="main-content">
+                <div class="page-header">
+                    <div>
+                        <h1>Dashboard Overview</h1>
+                        <p>Welcome back! Here's what's happening with your studies.</p>
+                    </div>
+                </div>
+                
+                <div class="content-wrapper">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon primary">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalAssignments">0</h3>
+                                <p>Total Assignments</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon success">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="completedAssignments">0</h3>
+                                <p>Completed</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon alert">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="overdueAssignments">0</h3>
+                                <p>Overdue</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon accent">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalCourses">0</h3>
+                                <p>Active Courses</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h2>Upcoming Deadlines</h2>
+                                <a href="assignments.html" class="view-all">View All</a>
+                            </div>
+                            <div class="upcoming-deadlines" id="upcomingDeadlines">
+                                <p class="empty-state">No upcoming deadlines</p>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h2>Recent Courses</h2>
+                                <a href="courses.html" class="view-all">View All</a>
+                            </div>
+                            <div class="recent-courses" id="recentCourses">
+                                <p class="empty-state">No courses added yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

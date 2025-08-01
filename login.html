@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - DeadlineDASH</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+  <section class="app-layout auth-page flex justify-center align-center h-full">
+    <div
+      class="auth-container"
+      style="
+        background: var(--white);
+        padding: var(--spacing-2xl);
+        border-radius: var(--radius-xl);
+        box-shadow: 0 4px 20px var(--shadow-hover);
+        width: 100%;
+        max-width: 420px;
+        animation: fadeIn 0.5s ease;
+      "
+    >
+      <!-- Header -->
+      <div
+        class="auth-header flex align-center mb-lg"
+        style="gap: var(--spacing-md)"
+      >
+        <a href="index.html" class="btn-icon" title="Back to Home">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <h2 style="margin: 0; color: var(--primary-color)">Sign In</h2>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form flex flex-column gap-md">
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" name="email" required placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="password" required placeholder="Enter your password" />
+        </div>
+
+        <div class="form-options flex justify-between align-center mt-sm mb-md">
+          <label class="checkbox-label flex align-center gap-sm">
+            <input type="checkbox" id="rememberMe" />
+            <span class="text-muted">Remember Me</span>
+          </label>
+          <a href="forgot-password.html" class="forgot-password text-muted" style="font-size: 0.875rem;">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary btn-full btn-large">Login</button>
+      </form>
+
+      <!-- Switch to Register -->
+      <p class="auth-switch text-center mt-md" style="font-size: 0.875rem; color: var(--text-muted)">
+        Don't have an account?
+        <a href="register.html" style="color: var(--accent-color); text-decoration: none">
+          Register
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <script src="js/common.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

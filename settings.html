@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings - DeadlineDASH</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">
+          <i class="fas fa-rocket"></i>
+          <span>DeadlineDASH</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="user-info">
+          <span id="headerUserName">Welcome!</span>
+          <div class="user-menu">
+            <button class="user-avatar" onclick="toggleUserMenu()">
+              <i class="fas fa-user"></i>
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+              <a href="profile.html">Profile</a>
+              <a href="settings.html">Settings</a>
+              <a href="#" onclick="logout()">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- App Container -->
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="assignments.html" class="nav-item">
+            <i class="fas fa-tasks"></i>
+            <span>Assignments</span>
+          </a>
+          <a href="courses.html" class="nav-item">
+            <i class="fas fa-book"></i>
+            <span>Courses</span>
+          </a>
+          <a href="calendar.html" class="nav-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Calendar</span>
+          </a>
+          <a href="statistics.html" class="nav-item">
+            <i class="fas fa-chart-pie"></i>
+            <span>Statistics</span>
+          </a>
+          <a href="profile.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+          </a>
+          <a href="settings.html" class="nav-item active">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="page-header">
+          <h1>Settings</h1>
+          <p>Customize your DeadlineDASH experience</p>
+        </div>
+
+        <div class="grid-layout">
+          <!-- Appearance -->
+          <div class="card">
+            <h2>Appearance</h2>
+            <div class="form-group toggle-group">
+              <label for="darkModeToggle">
+                <span>Dark Mode</span>
+                <div class="toggle-switch">
+                  <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()" />
+                  <span class="slider"></span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Notifications -->
+          <div class="card">
+            <h2>Notifications</h2>
+            <div class="form-group toggle-group">
+              <label for="emailReminders">
+                <span>Email Reminders</span>
+                <div class="toggle-switch">
+                  <input type="checkbox" id="emailReminders" checked />
+                  <span class="slider"></span>
+                </div>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="reminderFrequency">Reminder Frequency</label>
+              <select id="reminderFrequency">
+                <option value="daily">Daily</option>
+                <option value="every-3-days">Every 3 Days</option>
+                <option value="weekly">Weekly</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Data Management -->
+          <div class="card">
+            <h2>Data Management</h2>
+            <div class="button-group">
+              <button class="btn-secondary" onclick="exportData()">Export Data</button>
+              <button class="btn-alert" onclick="clearAllData()">Clear All Data</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

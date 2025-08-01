@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verify Email - DeadlineDASH</title>
+  
+  <!-- External Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+  <section class="page auth-page active">
+    <div class="auth-container">
+      
+      <!-- Header with back button -->
+      <div class="auth-header">
+        <a href="register.html" class="back-btn" title="Back to Register">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <h2>Verify Email</h2>
+      </div>
+
+      <!-- OTP message -->
+      <p class="otp-message">
+        Enter the 6-digit code sent to <span id="otpPhone">your phone</span>
+      </p>
+
+      <!-- OTP form -->
+      <form id="otpForm" class="auth-form">
+        <div class="otp-inputs">
+          <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
+          <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
+          <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
+          <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
+          <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
+          <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*" required>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn-primary btn-full">Verify OTP</button>
+      </form>
+
+      <!-- Resend OTP -->
+      <p class="resend-otp">
+        Didn't receive the code? 
+        <a href="#" onclick="resendOTP()" class="resend-link">Resend</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="js/common.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - DeadlineDASH</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <section class="app-layout auth-page flex justify-center align-center h-full">
+    <div
+      class="auth-container"
+      style="
+        background: var(--white);
+        padding: var(--spacing-2xl);
+        border-radius: var(--radius-xl);
+        box-shadow: 0 4px 20px var(--shadow-hover);
+        width: 100%;
+        max-width: 420px;
+        animation: fadeIn 0.5s ease;
+      "
+    >
+      <!-- Header -->
+      <div
+        class="auth-header flex align-center mb-lg"
+        style="gap: var(--spacing-md)"
+      >
+        <a href="index.html" class="btn-icon" title="Back to Home">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <h2 style="margin: 0; color: var(--primary-color)">Create Account</h2>
+      </div>
+
+      <!-- Form -->
+      <form id="registerForm" class="auth-form flex flex-column gap-md">
+        <div class="form-group">
+          <label for="registerFullName">Full Name</label>
+          <input type="text" id="registerFullName" required />
+        </div>
+        <div class="form-group">
+          <label for="registerEmail">Email Address</label>
+          <input type="email" id="registerEmail" required />
+        </div>
+        <div class="form-group">
+          <label for="registerPhone">Phone Number (Verified)</label>
+          <input type="tel" id="registerPhone" placeholder="+919010197771" value="+919010197771" required />
+          <small style="color: #666; font-size: 0.8rem;">Use your verified phone number from Twilio</small>
+        </div>
+        <div class="form-group">
+          <label for="registerPassword">Password</label>
+          <input type="password" id="registerPassword" required />
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" required />
+        </div>
+        <button type="submit" class="btn-primary btn-full">Send OTP</button>
+      </form>
+
+      <!-- Switch to Login -->
+      <p
+        class="auth-switch text-center mt-md"
+        style="font-size: 0.875rem; color: var(--text-muted)"
+      >
+        Already have an account?
+        <a
+          href="login.html"
+          style="color: var(--accent-color); text-decoration: none"
+        >
+          Sign In
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <script src="js/common.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

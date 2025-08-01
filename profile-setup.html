@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Setup - DeadlineDASH</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+                <div class="logo"><i class="fas fa-clipboard-list"></i> DeadlineDASH</div>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <div class="user-menu">
+                        <button class="user-avatar">U</button>
+                        <div class="user-dropdown">
+                            <a href="#">Settings</a>
+                            <a href="#">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Container -->
+        <div class="app-container">
+            <!-- Sidebar (hidden on setup page) -->
+            <aside class="sidebar" style="display: none;"></aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="content-wrapper">
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <div>
+                            <h1>Complete Your Profile</h1>
+                            <p>Just a few more details to get started</p>
+                        </div>
+                    </div>
+
+                    <!-- Profile Setup Form -->
+                    <div class="dashboard-card">
+                        <form id="profileSetupForm" class="modal-form">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="studentId">Student ID</label>
+                                <input type="text" id="studentId" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="yearOfStudy">Year of Study</label>
+                                <select id="yearOfStudy" required>
+                                    <option value="">Select Year</option>
+                                    <option value="1">1st Year</option>
+                                    <option value="2">2nd Year</option>
+                                    <option value="3">3rd Year</option>
+                                    <option value="4">4th Year</option>
+                                    <option value="graduate">Graduate</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="department">Department/Stream</label>
+                                <select id="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="computer-science">Computer Science</option>
+                                    <option value="electrical">Electrical Engineering</option>
+                                    <option value="mechanical">Mechanical Engineering</option>
+                                    <option value="civil">Civil Engineering</option>
+                                    <option value="business">Business Administration</option>
+                                    <option value="mathematics">Mathematics</option>
+                                    <option value="physics">Physics</option>
+                                    <option value="chemistry">Chemistry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="modal-actions">
+                                <button type="submit" class="btn-primary btn-full">Save & Continue</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/profile-setup.js"></script>
+</body>
+</html>

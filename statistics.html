@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Statistics - DeadlineDASH</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">
+          <i class="fas fa-rocket"></i>
+          <span>DeadlineDASH</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="user-info">
+          <span id="headerUserName">Welcome!</span>
+          <div class="user-menu">
+            <button class="user-avatar" onclick="toggleUserMenu()">
+              <i class="fas fa-user"></i>
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+              <a href="profile.html">Profile</a>
+              <a href="settings.html">Settings</a>
+              <a href="#" onclick="logout()">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="nav-item"><i class="fas fa-home"></i><span>Dashboard</span></a>
+          <a href="assignments.html" class="nav-item"><i class="fas fa-tasks"></i><span>Assignments</span></a>
+          <a href="courses.html" class="nav-item"><i class="fas fa-book"></i><span>Courses</span></a>
+          <a href="calendar.html" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Calendar</span></a>
+          <a href="statistics.html" class="nav-item active"><i class="fas fa-chart-pie"></i><span>Statistics</span></a>
+          <a href="profile.html" class="nav-item"><i class="fas fa-user"></i><span>Profile</span></a>
+          <a href="settings.html" class="nav-item"><i class="fas fa-cog"></i><span>Settings</span></a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="page-header">
+          <div>
+            <h1>📊 Statistics</h1>
+            <p>Track your academic progress and performance</p>
+          </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="content-wrapper">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <div class="card">
+              <div class="card-header">
+                <h2>📈 Assignment Progress</h2>
+              </div>
+              <div class="card-body">
+                <canvas id="assignmentChart" width="100%" height="200"></canvas>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <h2>📚 Course Distribution</h2>
+              </div>
+              <div class="card-body">
+                <canvas id="courseChart" width="100%" height="200"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Breakdown and Performance Stats -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card">
+              <div class="card-header">
+                <h2>📝 Assignment Breakdown</h2>
+              </div>
+              <div class="card-body">
+                <ul class="stat-list" id="assignmentBreakdown">
+                  <!-- Populated by JS -->
+                </ul>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <h2>🎯 Course Performance</h2>
+              </div>
+              <div class="card-body">
+                <ul class="stat-list" id="coursePerformance">
+                  <!-- Populated by JS -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/common.js"></script>
+  <script src="js/statistics.js"></script>
+</body>
+</html>

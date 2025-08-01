@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - DeadlineDASH</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">
+          <i class="fas fa-rocket"></i>
+          <span>DeadlineDASH</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="user-info">
+          <span id="headerUserName">Welcome!</span>
+          <div class="user-menu">
+            <button class="user-avatar" onclick="toggleUserMenu()">
+              <i class="fas fa-user"></i>
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+              <a href="profile.html">Profile</a>
+              <a href="settings.html">Settings</a>
+              <a href="#" onclick="logout()">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- App Container -->
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="assignments.html" class="nav-item">
+            <i class="fas fa-tasks"></i>
+            <span>Assignments</span>
+          </a>
+          <a href="courses.html" class="nav-item">
+            <i class="fas fa-book"></i>
+            <span>Courses</span>
+          </a>
+          <a href="calendar.html" class="nav-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Calendar</span>
+          </a>
+          <a href="statistics.html" class="nav-item">
+            <i class="fas fa-chart-pie"></i>
+            <span>Statistics</span>
+          </a>
+          <a href="profile.html" class="nav-item active">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+          </a>
+          <a href="settings.html" class="nav-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="page-header">
+          <div>
+            <h1>Profile</h1>
+            <p>Manage your account information</p>
+          </div>
+        </div>
+
+        <div class="content-wrapper">
+          <div class="card">
+            <form id="profileForm" class="profile-form">
+              <div class="form-group">
+                <label for="profileFullName">Full Name</label>
+                <input type="text" id="profileFullName" required />
+              </div>
+              <div class="form-group">
+                <label for="profileStudentId">Student ID</label>
+                <input type="text" id="profileStudentId" required />
+              </div>
+              <div class="form-group">
+                <label for="profileEmail">Email</label>
+                <input type="email" id="profileEmail" required />
+              </div>
+              <div class="form-group">
+                <label for="profileYear">Year of Study</label>
+                <select id="profileYear" required>
+                  <option value="1">1st Year</option>
+                  <option value="2">2nd Year</option>
+                  <option value="3">3rd Year</option>
+                  <option value="4">4th Year</option>
+                  <option value="graduate">Graduate</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="profileDepartment">Department</label>
+                <select id="profileDepartment" required>
+                  <option value="computer-science">Computer Science</option>
+                  <option value="electrical">Electrical Engineering</option>
+                  <option value="mechanical">Mechanical Engineering</option>
+                  <option value="civil">Civil Engineering</option>
+                  <option value="business">Business Administration</option>
+                  <option value="mathematics">Mathematics</option>
+                  <option value="physics">Physics</option>
+                  <option value="chemistry">Chemistry</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn-primary">Update Profile</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
