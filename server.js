@@ -5,6 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
+const { MongoMemoryServer } = require('mongodb-memory-server');
 
 // Import routes
 const authRoutes = require('./routes/auth');
@@ -16,19 +17,46 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // MongoDB Connection
-const MONGODB_URI = process.env.MONGODB_URI;
+let mongoServer;
 
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => {
-  console.log('✅ Connected to MongoDB successfully');
-})
-.catch((error) => {
-  console.error('❌ MongoDB connection error:', error);
-  process.exit(1);
-});
+async function connectToDatabase() {
+  try {
+    if (process.env.NODE_ENV === 'production' && process.env.MONGODB_URI) {
+      // Production: Connect to MongoDB Atlas
+      console.log('📊 Connecting to MongoDB Atlas...');
+      await mongoose.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+      console.log('✅ Connected to MongoDB Atlas successfully');
+    } else {
+      // Development: Use in-memory MongoDB server
+      console.log('📊 Setting up in-memory MongoDB server...');
+      mongoServer = await MongoMemoryServer.create();
+      const mongoUri = mongoServer.getUri();
+      
+      console.log('📊 Using in-memory MongoDB server at:', mongoUri);
+      
+      await mongoose.connect(mongoUri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      });
+      
+      console.log('✅ Connected to in-memory MongoDB successfully');
+    }
+  } catch (error) {
+    console.error('❌ MongoDB connection error:', error);
+    if (process.env.NODE_ENV === 'production') {
+      console.error('❌ Cannot start production server without MongoDB connection');
+      process.exit(1);
+    } else {
+      console.log('⚠️ Continuing without MongoDB connection. Some features may not work.');
+    }
+  }
+}
+
+// Connect to database
+connectToDatabase();
 
 // Middleware
 app.use(helmet());
@@ -116,7 +144,32 @@ app.use((req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+// Start the server
+const server = app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
   console.log(`📊 API available at http://localhost:${PORT}/api`);
+});
+
+// Graceful shutdown
+process.on('SIGINT', async () => {
+  console.log('Shutting down gracefully...');
+  
+  // Close the Express server
+  server.close(() => {
+    console.log('HTTP server closed');
+  });
+  
+  // Close MongoDB connection
+  if (mongoose.connection.readyState) {
+    await mongoose.disconnect();
+    console.log('MongoDB connection closed');
+  }
+  
+  // Stop the in-memory MongoDB server if it exists (development only)
+  if (mongoServer && process.env.NODE_ENV !== 'production') {
+    await mongoServer.stop();
+    console.log('MongoDB memory server stopped');
+  }
+  
+  process.exit(0);
 });
